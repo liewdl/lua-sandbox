@@ -2,16 +2,23 @@ io.write("Input an Earth age: ")
 io.flush()
 
 local earth_age = io.read("*n")
-local earth_day_second = 86400
-local earth_day_count = 365.25
-local earth_year_second = earth_day_second * earth_day_count
 
-function year_in_space (diff)
-	return ((earth_year_second * diff) / earth_day_second)
-end
-
-local space_age = {
-	{ planet = "Mercury", age = earth_day_count / year_in_space(0.2408467) },	
+local planets = {
+	{ name = "Mercury", orbital_period = 0.2408467 },	
+	{ name = "Venus", orbital_period = 0.61519726 },
+	{ name = "Earth", orbital_period = 1.0 },
+	{ name = "Mars", orbital_period = 1.8808158 },
+	{ name = "Jupiter", orbital_period = 11.862615 },
+	{ name = "Saturn", orbital_period = 29.447498 },
+	{ name = "Uranus", orbital_period = 84.016846 },
+	{ name = "Neptune", orbital_period = 164.79132 }
 }
 
-print (space_age[1].age)
+print() 
+
+for _, planet in ipairs(planets) do
+	local earth_year_equivalent = 1 / planet.orbital_period
+	print (planet.name, string.format("%.2f", earth_year_equivalent * earth_age))
+end
+
+print()
