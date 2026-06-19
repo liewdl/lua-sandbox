@@ -17,8 +17,8 @@ local planets = {
 print() 
 
 for _, planet in ipairs(planets) do
-	local earth_year_equivalent = 1 / planet.orbital_period
-	print (planet.name, string.format("%.2f", earth_year_equivalent * earth_age))
+	local earth_age_equivalent = earth_age / planet.orbital_period
+	print (planet.name, string.format("%.2f", earth_age_equivalent))
 end
 
 print()
