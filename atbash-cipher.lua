@@ -5,14 +5,11 @@ local str = io.read("*l")
 
 for char in string.gmatch(str, ".") do
 	ascii_code = string.byte(char)
-	if ascii_code > 65 then
-		crypted_ascii = (ascii_code & 31) ~ 27 | (ascii_code & 96)
-		io.write(ascii_code & 96)
+	if ascii_code >= 65 then
+		crypted_ascii = 27 - (ascii_code & 31) | (ascii_code & 96)
 		io.write(string.char(crypted_ascii))
-
-		print ""
 	else
-		io.write(" ")
+		io.write(char)
 	end
 end
 
