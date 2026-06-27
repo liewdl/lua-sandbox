@@ -1,6 +1,7 @@
-s = "nasi lengkap"
-n = 25
-for i = 65,90 do
-	print(string.char(i + n))
-	n = n - 2
-end
+io.write("Input a string: ")
+io.flush()
+
+local str = io.read("*l")
+
+ch = string.byte(str)
+eq = (ch & 31) ~ 27 | --(64 | 96)
