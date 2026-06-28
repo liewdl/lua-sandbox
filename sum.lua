@@ -1,8 +1,11 @@
-cart = {15000, 5000, 24000, 12500}
 sum = 0
 
-for i, prices in ipairs(cart) do
-  sum = sum + prices
+while num ~= 0 do
+	io.write("Input a number, input 0 to sum: ")
+	io.flush()
+
+	num = io.read("*n")
+	sum = sum + num
 end
 
-print ("Your total is: " .. sum)
+print("The sum is " .. sum)
